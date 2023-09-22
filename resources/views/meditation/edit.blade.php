@@ -22,7 +22,7 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="input-file" class="form-label">Upload File</label>
+                    <label for="input-file" class="form-label">Kategori Meditasi</label>
                     <select class="form-select" name="category_id">
                     @foreach ($category as $data)
                         @if(old('category_id', $meditation->category_id) == $data->id)

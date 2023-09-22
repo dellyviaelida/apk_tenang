@@ -9,13 +9,13 @@
 
 <ul class="nav nav-tabs mt-3">
   <li class="nav-item">
-    <a class="nav-link active" href="#user" data-bs-toggle="tab">Profile Akun</a>
+    <a class="nav-link active" href="/profile#user" data-bs-toggle="tab">Profile Akun</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#profile" data-bs-toggle="tab">Edit Profile</a>
+    <a class="nav-link" href="/profile#profile" data-bs-toggle="tab">Edit Profile</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#ubah-password" data-bs-toggle="tab">Ubah Password</a>
+    <a class="nav-link" href="/profile#ubah-password" data-bs-toggle="tab">Ubah Password</a>
   </li>
 </ul>
 
@@ -60,7 +60,7 @@
             <div class="col">
               <div class="mb-3">
                 <label for="input-nama" class="form-label">Username</label>
-                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="input-nama" value="{{ old('name', auth()->user()->username) }}" required>
+                <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="input-nama" value="{{ old('username', auth()->user()->username) }}" required>
                 @error('username')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -70,7 +70,7 @@
             </div>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" aria-describedby="emailHelp" value="{{ old('name', auth()->user()->email) }}" required>
+              <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" aria-describedby="emailHelp" value="{{ old('email', auth()->user()->email) }}" required>
               @error('email')
                 <div class="invalid-feedback">
                   {{ $message }}
@@ -85,18 +85,34 @@
     </div>
 
     <div class="tab-pane mb-3" id="ubah-password">
-    <form class="mt-3">
+    <form class="mt-3" action="/profile" method="post">
+        @method('put')
+        @csrf
+        @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+        @elseif (session('error'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('error') }}
+        </div>
+        @endif
         <div class="mb-3">
             <label for="password-lama" class="form-label">Password Lama</label>
-            <input type="password" class="form-control" id="password-lama">
+            <input type="password" name="old_password" class="form-control" id="password-lama">
         </div>
         <div class="mb-3">
             <label for="password-baru" class="form-label">Password Baru</label>
-            <input type="password" class="form-control" id="password-baru">
+            <input type="password" name="new_password" class="form-control @error('new_password') is-invalid @enderror" id="password-baru">
+            @error('new_password')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
         <div class="mb-3">
-            <label for="confirm-pass" class="form-label">Konfirmasi Password Baru</label>
-            <input type="password" class="form-control" id="confirm-pass">
+            <label for="password-confirm" class="form-label">Konfirmasi Password Baru</label>
+            <input type="password" name="new_password_confirmation" class="form-control" id="password-confirm" required>
         </div>
         <button type="submit" class="btn btn-primary">Ubah Password</button>
     </form>
@@ -105,6 +121,5 @@
 </div>
 
 </div>
-
 
 @endsection

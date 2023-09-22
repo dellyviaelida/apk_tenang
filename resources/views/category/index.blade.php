@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Data Kategori Meditasi</h1>
       </div>
-      <a class="btn btn-primary rounded" href="/category/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
+      <a class="btn btn-primary rounded mb-3" href="/category/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
 
       <table class="table table-bordered">
   <thead>
@@ -23,16 +23,19 @@
       <th scope="row">{{ $loop->iteration }}</th>
       <td>{{ $data->name }}</td>
       <td>
-        <img src="{{ asset('storage/' . $data->image) }}" alt="{{ $data->image }}">
+        <img src="{{ asset('storage/' . $data->image) }}" alt="{{ $data->image }}" height="100px">
       </td>
       <td>
-      <a class="btn btn-primary rounded" href="/category/{{ $data->id }}/edit" role="button"><i class="bi bi-pencil-square"></i> edit</a>
-      <!-- <a class="btn btn-danger rounded" href="#" role="button"><i class="bi bi-trash"></i> delete</a> -->
-      <form action="/category/{{ $data->id }}" method="post">
-        @method('delete')
-        @csrf
-        <button type="submit" class="btn btn-danger rounded"><i class="bi bi-trash"></i> delete</button>
-      </form>
+        <div class="d-inline-flex">
+          <a class="btn btn-primary rounded" href="/category/{{ $data->id }}/edit" role="button">
+            <i class="bi bi-pencil-square"></i> edit
+          </a>
+          <form class="mx-3" action="/category/{{ $data->id }}" method="post">
+            @method('delete')
+            @csrf
+            <button type="submit" class="btn btn-danger rounded"><i class="bi bi-trash"></i> delete</button>
+          </form>
+        </div>
       </td>
     </tr>
     @endforeach

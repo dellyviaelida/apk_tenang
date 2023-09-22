@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class RegistController extends Controller
 {
     public function index(){
-        return view('register', [
+        return view('registrasi', [
             "title" => "Registration"
         ]);
     }
@@ -47,14 +47,28 @@ class RegistController extends Controller
         $validated = $request->validate([
             'name' => 'required|max:255',
             'username' => 'required|alpha_dash|min:3|max:255|unique:users',
-            'email' => 'required|email:dns|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'email' => 'required|email:dns|unique:users'
         ]);
-
-        $validated['password'] = Hash::make($validated['password']);
         
         User::where('id', $user->id)->update($validated);
 
-        return redirect('/login')->with('success', 'Registrasi berhasil! Silakan lakukan Login akun Anda');
+        return redirect('/profile#profile');
+    }
+
+    public function changePassword(Request $request){
+        $request->validate([
+            'old_password' => 'required|min:6',
+            'new_password' => 'required|confirmed|min:6'
+        ]);
+
+        if(!Hash::check($request->old_password, auth()->user()->password)){
+            return back()->with("error", "Old Password Doesn't match!");
+        }
+
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return back()->with("status", "Password changed successfully!");
     }
 }

@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Data Zikir</h1>
       </div>
-      <a class="btn btn-primary rounded" href="/zikir/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
+      <a class="btn btn-primary rounded mb-3" href="/zikir/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
 
       <table class="table table-bordered">
   <thead>
@@ -32,7 +32,6 @@
       <td class="col-6">{{ $data->desc }}</td>
       <td>
       <a class="btn btn-primary rounded" href="/zikir/{{ $data->id }}/edit" role="button"><i class="bi bi-pencil-square"></i> edit</a>
-      <!-- <a class="btn btn-danger rounded" href="#" role="button"><i class="bi bi-trash"></i> delete</a> -->
       <form action="/zikir/{{ $data->id }}" method="post">
         @method('delete')
         @csrf

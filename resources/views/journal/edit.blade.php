@@ -5,10 +5,10 @@
 <div class="container" style="margin-top: 120px">
     <a type="button" class="btn btn-lg text-white text-start" href="/journal" style="background-color: #367795;"><span class="fw-bold">My Journal</span> <br><span class="fw-lighter">Lihat jurnalmu disini!</span></a>
 
-    <form action="/journal/{{ $journal->id }}" method="post">
+    <form class="mb-5" action="/journal/{{ $journal->id }}" method="post">
         @method('put')
         @csrf
-        <div class="mb-3">
+        <div class="mt-3 mb-3">
             <label for="title" class="form-label">Judul</label>
             <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Masukkan Judul" value="{{ old('title', $journal->title) }}" required>
             @error('title')

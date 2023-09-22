@@ -11,21 +11,48 @@
   Hasil menunjukkan bahwa Anda mengalami
   @if ($score <= 13)
     <h2 class="fw-bolder mt-5 mb-5" style="color:#367795">Stress Ringan</h2>
-    Anda relatif tidak mengalami stres yang dapat mengganggu aktifitas harian Anda.
+    Kamu relatif tidak mengalami stres yang mengganggu kehidupan sehari-hari. Pertahankan aktivitas yang kamu lakukan selama ini dan tetap jaga kondisi kesehatan mentalmu dengan melakukan meditasi dan menulis jurnal secara rutin ya.
   @elseif ($score >= 14 || $score <= 26)
     <h2 class="fw-bolder mt-5 mb-5" style="color:#367795">Stress Sedang</h2>
-    Anda relatif tidak mengalami stres yang dapat mengganggu aktifitas harian Anda.
+    Kamu relatif mengalami stres yang mengganggu kehidupan sehari-hari. Kamu dapat menyalurkan emosimu melalui kegiatan-kegiatan positif seperti curhat, melakukan hobi, berolahraga, meditasi, journaling, dan berdoa kepada Tuhan.
   @else
     <h2 class="fw-bolder mt-5 mb-5" style="color:#367795">Stress Berat</h2>
-    Anda mengalami stres yang dapat mengganggu aktifitas harian Anda.
+    Kondisi kamu saat ini memerlukan pemeriksaan profesional. Cobalah untuk melakukan konseling dengan psikolog.
   @endif
     
-  
   </div>
 </div>
 
-<p class="mt-5">Rekomendasi untuk Anda</p>
+<h5 class="mt-5 mb-5">Rekomendasi untuk Anda</h5>
+Treatment berikut ini mungkin dapat membantu Anda
+<div class="d-flex">
 
+@if ($test11==0)
+<a class="btn py-3" href="/therapy-meditation" role="button" style="background: #367795; width: 10rem; margin-right: 10px;">
+  <img src="pictures/meditasi.jpeg" class="rounded text-center img-fluid" style="object-fit: cover;">
+  <h6 class="text-white mt-3">Meditation</h6>
+</a>
+
+  @if ($test12=="ya"||$test12=="mungkin")
+  <a class="btn py-3" href="/therapy-zikir" role="button" style="background: #367795; width: 10rem; margin-right: 10px;">
+    <img src="pictures/zikir.jpg" class="rounded text-center img-fluid" style="object-fit: cover;">
+    <h6 class="text-white mt-3">Audio Zikir</h6>
+  </a>
+  @endif
+
+  @if (($test13=="ya"||$test13=="mungkin") || ($test14=="ya"||$test14=="mungkin"))
+  <a class="btn py-3" href="/journal/create" role="button" style="background: #367795; width: 10rem;">
+    <img src="pictures/journal.jpg" class="rounded text-center img-fluid" style="object-fit: cover;">
+    <h6 class="text-white mt-3">Daily Journal</h6>
+  </a>
+  @endif
+
+@else
+
+Tidak ada rekomendasi untuk Anda
+
+@endif
+</div>
 
 </div>
 

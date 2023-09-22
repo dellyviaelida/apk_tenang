@@ -5,6 +5,7 @@
 <div class="container" style="margin-top: 100px;">
 <h2>Tes Perceived Stress Scale (PSS)</h2>
 <p>Tes Perceived Stress Scale (PSS) ini membantu Anda untuk memberikan gambaran tingkatan stres yang Anda miliki. Jawablah semua pertanyaan dibawah ini dengan jujur.</p>
+
 <form action="/test" method="post">
     @csrf
 <div class="card">
@@ -317,7 +318,7 @@
 
 <div class="card mt-3">
   <div class="card-body" style="margin: 0 50px;">
-    <p>Nomor  10</p>
+    <p>Nomor 10</p>
     <p>Dalam satu bulan terakhir, seberapa sering Anda merasa kesulitan-kesulitan dalam hidup menumpuk sedemikian tinggi sehingga Anda tidak dapat mengatasinya?</p>
     <div class="mb-3">
         <div class="form-check mb-2">
@@ -340,6 +341,106 @@
             <input class="form-check-input @error('test10') is-invalid @enderror" type="radio" name="test10" id="Radio5" value="0">
             <label class="form-check-label mx-2" for="Radio5">Tidak pernah</label>
             @error('test10')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body" style="margin: 0 50px;">
+    <p>Nomor 11</p>
+    <p>Apa tujuan yang ingin kamu capai hari ini?</p>
+    <div class="mb-3">
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test11') is-invalid @enderror" type="radio" name="test11" id="Radio1" value="0">
+            <label class="form-check-label mx-2" for="Radio1">Bisa lebih rileks dan tenang</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input @error('test11') is-invalid @enderror" type="radio" name="test11" id="Radio2" value="1">
+            <label class="form-check-label mx-2" for="Radio5">Hanya ingin mengetahui kondisi kesehatan mental saya</label>
+            @error('test11')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body" style="margin: 0 50px;">
+    <p>Nomor 12</p>
+    <p>Apakah kamu menilai dirimu sebagai orang yang religius?</p>
+    <div class="mb-3">
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test12') is-invalid @enderror" type="radio" name="test12" id="Radio1" value="ya">
+            <label class="form-check-label mx-2" for="Radio1">Ya</label>
+        </div>
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test12') is-invalid @enderror" type="radio" name="test12" id="Radio2" value="tidak">
+            <label class="form-check-label mx-2" for="Radio2">Tidak</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input @error('test12') is-invalid @enderror" type="radio" name="test12" id="Radio3" value="mungkin">
+            <label class="form-check-label mx-2" for="Radio5">Mungkin</label>
+            @error('test12')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body" style="margin: 0 50px;">
+    <p>Nomor 13</p>
+    <p>Apakah kamu suka menulis?</p>
+    <div class="mb-3">
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test13') is-invalid @enderror" type="radio" name="test13" id="Radio1" value="ya">
+            <label class="form-check-label mx-2" for="Radio1">Ya</label>
+        </div>
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test13') is-invalid @enderror" type="radio" name="test13" id="Radio2" value="tidak">
+            <label class="form-check-label mx-2" for="Radio2">Tidak</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input @error('test13') is-invalid @enderror" type="radio" name="test13" id="Radio3" value="mungkin">
+            <label class="form-check-label mx-2" for="Radio5">Mungkin</label>
+            @error('test13')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-3">
+  <div class="card-body" style="margin: 0 50px;">
+    <p>Nomor 14</p>
+    <p>Apakah selama ini kamu belum memiliki teman yang bisa kamu percayai untuk mendengarkan keluh kesahmu?</p>
+    <div class="mb-3">
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test14') is-invalid @enderror" type="radio" name="test14" id="Radio1" value="ya">
+            <label class="form-check-label mx-2" for="Radio1">Ya</label>
+        </div>
+        <div class="form-check mb-2">
+            <input class="form-check-input @error('test14') is-invalid @enderror" type="radio" name="test14" id="Radio2" value="tidak">
+            <label class="form-check-label mx-2" for="Radio2">Tidak</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input @error('test14') is-invalid @enderror" type="radio" name="test14" id="Radio3" value="mungkin">
+            <label class="form-check-label mx-2" for="Radio5">Mungkin</label>
+            @error('test14')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>

@@ -111,21 +111,21 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="card border-0" style="width: 80%; margin-left: 10%;">
-      <a class="btn text-start " href="/guide" role="button" style="width: 100%; height: 60%;">
+      <a class="btn text-start " href="/guide/meditasi" role="button" style="width: 100%; height: 25rem;">
       <div class="guide-img">
-        <img src="pictures/pengertian.jpg" class="card-img" alt="...">
+        <img src="pictures/pengertian.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover;">
       </div>
       <div class="card-img-overlay">
-        <h4 class="card-title fw-semibold px-5 pt-5">Apa itu <br>...</h4>
+        <h4 class="card-title fw-semibold px-5 pt-5">Apa itu <br>Meditasi</h4>
       </div>
       </a>
       </div>
     </div>
     <div class="carousel-item">
       <div class="card border-0" style="width: 80%; margin-left: 10%;">
-      <a class="btn text-start " href="/guide" role="button" style="width: 100%; height: 60%;">
+      <a class="btn text-start " href="/guide/burnout" role="button" style="width: 100%; height: 25rem;">
       <div class="guide-img">
-        <img src="pictures/pengertian.jpg" class="card-img" alt="...">
+        <img src="pictures/burnout.jpg" class="card-img img-fluid" alt="..." style="object-fit: cover;">
       </div>
       <div class="card-img-overlay">
         <h4 class="card-title fw-semibold px-5 pt-5">Gejala burnout</h4>
@@ -133,7 +133,7 @@
       </a>
       </div>
     </div>
-    <div class="carousel-item">
+    <!-- <div class="carousel-item">
       <div class="card border-0" style="width: 80%; margin-left: 10%;">
       <a class="btn text-start " href="/guide" role="button" style="width: 100%; height: 60%;">
       <div class="guide-img">
@@ -144,7 +144,7 @@
       </div>
       </a>
       </div>
-    </div>
+    </div> -->
   </div>
   </div>
     

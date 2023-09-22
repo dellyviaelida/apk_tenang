@@ -28,7 +28,7 @@
                 ket. bersifat opsional
             </div>
         </div>
-        <button type="submit" class="btn text-white px-5 rounded fw-bold" style="background-color: #367795;">Input</button>
+        <button type="submit" class="btn text-white px-5 rounded fw-bold" style="background-color: #367795;">Update</button>
     
     </form>
 

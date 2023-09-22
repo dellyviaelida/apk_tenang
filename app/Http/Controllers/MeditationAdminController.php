@@ -74,7 +74,7 @@ class MeditationAdminController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'file' => 'required|file|mimes:audio/mpeg,mpga,mp3,wav,aac',
+            'file' => 'required|file|max:102400|mimes:audio/mpeg,mpga,mp3,wav,aac',
             'desc' => 'required',
             'category_id' => 'required'
         ]);

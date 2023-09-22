@@ -6,7 +6,7 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Data Meditation</h1>
       </div>
-      <a class="btn btn-primary rounded" href="/meditation/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
+      <a class="btn btn-primary rounded mb-3" href="/meditation/create" role="button"><i class="bi bi-pencil-square"></i> input data</a>
 
       <table class="table table-bordered">
   <thead>

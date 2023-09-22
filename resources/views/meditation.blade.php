@@ -2,7 +2,7 @@
 
 @section('container')
 
-<div class="container" style="margin-top: 120px">
+<div class="container mb-5" style="margin-top: 120px">
 
 
 <div class="row gx-5 gy-5 text-white">
@@ -10,9 +10,9 @@
   <div class="col-sm-4">
     <div class="card" style="background: #367795;">
       <div class="card-body">
-        <img src="pictures/takut.jpg" class="rounded text-center img-fluid">
+        <img src="../pictures/meditasi.jpeg" class="rounded text-center img-fluid">
         <h5 class="card-title mt-3"><a class="text-decoration-none text-white" href="/detail-meditation/{{ $data->id }}">{{ $data->title }}</a></h5>
-        <p><i class="bi bi-headphones"></i> ... menit</p>
+        <!-- <p><i class="bi bi-headphones"></i> ... menit</p> -->
       </div>
     </div>
   </div>

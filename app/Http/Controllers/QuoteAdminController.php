@@ -67,7 +67,8 @@ class QuoteAdminController extends Controller
             'quote' => 'required',
         ]);
         
-        Quote::where('id', $quote->id)->update($validated);
+        // Quote::where('id', $quote->id)->update($validated);
+        $quote->update($validated);
 
         return redirect('/quote');
     }

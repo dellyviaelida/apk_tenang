@@ -19,6 +19,10 @@ class TestController extends Controller
             'test8' => 'required|in:0,1,2,3,4',
             'test9' => 'required|in:0,1,2,3,4',
             'test10' => 'required|in:0,1,2,3,4',
+            'test11' => 'required|in:0,1',
+            'test12' => 'required|in:ya,tidak,mungkin',
+            'test13' => 'required|in:ya,tidak,mungkin',
+            'test14' => 'required|in:ya,tidak,mungkin',
         ]);
 
         $test1 = $request->input('test1');
@@ -31,12 +35,20 @@ class TestController extends Controller
         $test8 = $request->input('test8');
         $test9 = $request->input('test9');
         $test10 = $request->input('test10');
+        $test11 = $request->input('test11');
+        $test12 = $request->input('test12');
+        $test13 = $request->input('test13');
+        $test14 = $request->input('test14');
 
         $score = (int)$test1 + (int)$test2 + (int)$test3 + (int)$test4 + (int)$test5 + (int)$test6 + (int)$test7 + (int)$test8 + (int)$test9 + (int)$test10;
 
         return view('result',[
             "title" => "Result",
             "score" => $score,
+            "test11" => $test11,
+            "test12" => $test12,
+            "test13" => $test13,
+            "test14" => $test14,
         ]);
     }
 }

@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Sacramento&display=swap');
+      .sidebar{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+      }
       .nama-aplikasi{
         font-family: 'Sacramento', cursive;
         font-size: 40px;

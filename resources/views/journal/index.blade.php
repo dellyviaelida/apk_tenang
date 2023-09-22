@@ -15,40 +15,37 @@
     </div>
 </div>
 
-@foreach ($journal as $data)
+<br>
 
-<div class="card mb-3">
-  <div class="card-body">
-    <div class="row">
-        <div class="col-4">
-            <p class="text">{{ $data->created_at }}</p>
+@foreach ($journal as $data)
+<div class="container border rounded mb-4">
+    <div class="d-flex mt-3 justify-content-start">
+        <div class="p-2" style="margin-right: 50px;">
+            <p class="text">{{ $data->created_at->format('l, j-M-Y H:i') }}</p>
         </div>
-        <div class="col-7">
+        <div class="p-2 flex-grow-1">
             <a class="judul-jurnal" href="/journal/{{ $data->id }}">{{ $data->title }}</a>
         </div>
-        <div class="col dropdown">
-            <!-- <h2 class="d-flex justify-content-end"><a class="link" href=""><i class="bi bi-three-dots-vertical"></i></a></h2> -->
-            
-            <a class="dropdown-toggle text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-three-dots-vertical"></i>
-            </a>
-            
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/journal/{{ $data->id }}">Lihat</li>
-                <li><a class="dropdown-item" href="/journal/{{ $data->id }}/edit">Edit</li>
-                <li>
-                    <form action="/journal/{{ $data->id }}" method="post">
-                        @method('delete')
-                        @csrf
-                        <button type="submit" class="dropdown-item">Hapus</button>
-                    </form>
-
-                </li>
-            </ul>
-        
+        <div class="p-2">
+            <div class="dropdown">
+                <a class="text-decoration-none" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </a>
+                
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/journal/{{ $data->id }}">Lihat</a></li>
+                    <li><a class="dropdown-item" href="/journal/{{ $data->id }}/edit">Edit</a></li>
+                    <li>
+                        <form action="/journal/{{ $data->id }}" class="text-start" method="post">
+                            @method('delete')
+                            @csrf
+                            <button type="submit" class="dropdown-item">Hapus</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-  </div>
 </div>
 @endforeach
 

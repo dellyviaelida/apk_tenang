@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Sacramento&display=swap');
+      html{
+        height: 100%;
+        box-sizing: border-box;
+      }
+      body{
+        position: relative;
+        margin: 0;
+        min-height: 100%;
+        padding-bottom: 6.74rem;
+        box-sizing: inherit;
+      }
       .nama-aplikasi{
         font-family: 'Sacramento', cursive;
         font-size: 40px;
@@ -92,10 +103,6 @@
           text-decoration: none;
           color: lightgrey;
       }
-      .arab{
-        padding-left: 250px;
-        padding-top: 20px;
-      }
       .guide-title{
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 2px;
@@ -123,6 +130,12 @@
         z-index: 1;
         position: relative;
         left: -250px;
+      }
+      footer{
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
       }
     </style>
   </head>

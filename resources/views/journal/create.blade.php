@@ -6,7 +6,7 @@
     <a type="button" class="btn btn-lg text-white text-start" href="/journal" style="background-color: #367795;"><span class="fw-bold">My Journal</span> <br><span class="fw-lighter">Lihat jurnalmu disini!</span></a>
     <h1 class="mt-3">Apa itu jurnal?</h1>
     <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi provident quaerat possimus officiis deserunt voluptas in vero quo dolore dolorum, sequi, beatae tempora incidunt quis quia impedit aut dicta nisi</p>
-    <form action="/journal" method="post">
+    <form class="mb-5" action="/journal" method="post">
         @csrf
         <input type="hidden" name="title" class="form-control" id="title" value="My Journal">
         <div class="form-floating">

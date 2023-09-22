@@ -33,7 +33,7 @@ class ZikirAdminController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'file' => 'required|file|mimes:audio/mpeg,mpga,mp3,wav,aac',
+            'file' => 'required|file|mimes:audio/mpeg,mpga,mp3,wav,aac|max:102400',
             'desc' => 'required',
         ]);
         
@@ -68,7 +68,7 @@ class ZikirAdminController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required',
-            'file' => 'required|file|mimes:audio/mpeg,mpga,mp3,wav,aac',
+            'file' => 'required|file|max:102400|mimes:audio/mpeg,mpga,mp3,wav,aac',
             'desc' => 'required',
         ]);
         

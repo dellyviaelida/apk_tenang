@@ -8,6 +8,7 @@ use App\Http\Controllers\ZikirController;
 use App\Http\Controllers\RegistController;
 use App\Http\Controllers\JournalController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\MeditationController;
 use App\Http\Controllers\QuoteAdminController;
 use App\Http\Controllers\ZikirAdminController;
@@ -47,8 +48,14 @@ Route::get('/detail-meditation/{meditation}', [MeditationController::class, 'sho
 
 Route::get('/therapy-zikir', [ZikirController::class, 'index']);
 
-Route::get('/guide', function () {
+Route::get('/guide/meditasi', function () {
     return view('guide', [
+        "title" => "Guide"
+    ]);
+});
+
+Route::get('/guide/burnout', function () {
+    return view('detail-burnout', [
         "title" => "Guide"
     ]);
 });
@@ -57,9 +64,11 @@ Route::get('/profile', function () {
     return view('profile', [
         "title" => "Profile"
     ]);
-})->middleware('auth');
+})->middleware('client');
 
-Route::put('/profile', [RegistController::class, 'update'])->middleware('auth');
+Route::put('/profile/{user}', [RegistController::class, 'update'])->middleware('client');
+
+Route::put('/profile', [RegistController::class, 'changePassword'])->middleware('client');
 
 Route::get('/edit-journal', function () {
     return view('edit-journal', [
@@ -77,22 +86,20 @@ Route::post('/test', [TestController::class, 'process']);
 
 Route::get('/detail-category', [MeditationController::class, 'show']);
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-});
+// Route::get('/dashboard', function () {
+//     return view('admin.dashboard');
+// })->middleware('admin');
 
-Route::get('/data-journal', [JournalController::class, 'index']);
+Route::get('/dashboard', [UserAdminController::class, 'index'])->middleware('admin');
 
-Route::get('/input-data', function () {
-    return view('admin.input-data');
-});
+Route::get('/data-journal', [JournalController::class, 'index'])->middleware('admin');
 
-Route::resource('/journal', JournalUserController::class)->middleware('auth');
+Route::resource('/journal', JournalUserController::class)->middleware('client');
 
-Route::resource('/quote', QuoteAdminController::class);
+Route::resource('/quote', QuoteAdminController::class)->middleware('admin');
 
-Route::resource('/zikir', ZikirAdminController::class);
+Route::resource('/zikir', ZikirAdminController::class)->middleware('admin');
 
-Route::resource('/meditation', MeditationAdminController::class);
+Route::resource('/meditation', MeditationAdminController::class)->middleware('admin');
 
-Route::resource('/category', CategoryAdminController::class);
+Route::resource('/category', CategoryAdminController::class)->middleware('admin');

@@ -22,7 +22,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Upload Image</label>
-                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image">
+                    <img class="img-preview img-fluid mb-2 col-sm-5">
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage()">
                     @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -42,4 +43,22 @@
 
 </main>
 
+<script>
+
+    function previewImage(){
+        const image = document.querySelector('#image');
+        const imgPreview = document.querySelector('.img-preview');
+
+        imgPreview.style.display = 'block';
+
+        const reader = new FileReader();
+        reader.readAsDataURL(image.files[0]);
+
+        reader.onload = function(e) {
+            imgPreview.src = e.target.result;
+        }
+    }
+    
+
+</script>
 @endsection
